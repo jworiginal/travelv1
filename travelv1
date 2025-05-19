@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>欢迎来到我的城市</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>欢迎来到我的城市</h1>
+    <div class="input-group">
+      <input type="text" id="cityInput" placeholder="请输入中国城市名">
+      <button id="confirmBtn">确认</button>
+    </div>
+  </div>
+  <script>
+    document.getElementById('confirmBtn').onclick = function() {
+      var city = document.getElementById('cityInput').value.trim();
+      if(city) {
+        window.location.href = 'city.html?city=' + encodeURIComponent(city);
+      } else {
+        alert('请输入城市名');
+      }
+    };
+    document.getElementById('cityInput').addEventListener('keydown', function(e) {
+      if(e.key === 'Enter') {
+        document.getElementById('confirmBtn').click();
+      }
+    });
+  </script>
+</body>
+</html> 
